@@ -12,6 +12,79 @@
   You work for Widget Co. They have hundreds of employees.
 */
 
+class ProgressiveManager {
+  constructor(first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+    this.title = 'Not a manager';
+    this.bonus = 0;
+    this.employeeCount = 0;
+  }
+
+  checkTitle() {
+    if (this.employeeCount >= 101) {
+      this.title = 'Bestest Manager';
+    } else if (this.employeeCount >= 51) {
+      this.title = 'Manager Plus';
+    } else if (this.employeeCount >= 11) {
+      this.title = 'Manager';
+    } else if (this.employeeCount >= 4) {
+      this.title = 'Mostly Manager';
+    } else if (this.employeeCount >= 1) {
+      this.title = 'Barely Manager';
+    } else {
+      this.title = 'Not a manager';
+    }
+  }
+
+  hire(employee) {
+    this.reports.push(employee);
+    this.employeeCount++
+    this.checkTitle();
+  }
+
+  fire(index) {
+    this.reports.splice(index, 1);
+    this.bonus += 100;
+  }
+}
+
+class Manager {
+  constructor(first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+  }
+  
+  hire(employee) {
+    this.reports.push(employee);
+  }
+
+  fire(index) {
+    this.reports.splice(index, 1);
+  }
+}
+
+class Employee {
+  constructor(first_name, last_name, email, age) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+  }
+
+  makeWidget() {
+    return `${this.first_name} ${this.last_name} Widget`;
+  }
+}
+
+let dave = new Employee(first_name, last_name, email, age);
+
 ////////// PROBLEM 1 //////////
 
 /*
@@ -29,10 +102,6 @@
   Call your class Employee and receive all the data in the constructor in the order listed above.
 */
 
-//Code Here
-
-
-
 ////////// PROBLEM 2 //////////
 
 /*
@@ -48,10 +117,6 @@
 
   Call your new class Manager
 */
-
-//Code Here
-
-
 
 ////////// PROBLEM 3 //////////
 
@@ -75,10 +140,6 @@
   Call your new class ProgressiveManager
 */
 
-//Code Here
-
-
-
 ////////// PROBLEM 4 - Black Diamond //////////
 
 /*
@@ -101,7 +162,3 @@
         - This function returns a function that is called when the machine is done rebooting
         - It should set decrease wear_and_tear_count by 10, and set needs_reboot to false
 */
-
-//Code Here
-
-
