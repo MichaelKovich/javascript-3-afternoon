@@ -12,6 +12,23 @@
   You work for Widget Co. They have hundreds of employees.
 */
 
+class Machine {
+  constructor() {
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  };
+
+  makeWidgets(x) {
+    this.widgets_made_count += x;
+    this.wear_and_tear_count += (1 * (x/50));
+  }
+
+  fixMachine() {
+    this.needs_reboot = true;
+  }
+}
+
 class ProgressiveManager {
   constructor(first_name, last_name, email, age) {
     this.first_name = first_name;
