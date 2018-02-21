@@ -130,11 +130,9 @@ let bobsPurchases = purchases.filter(function (element) {
   return (element["owner"] === "Bob");
 });
 
-let bobsPrices = [];
-
-bobsPurchases.forEach(function (element) {
-  bobsPrices.push(element["price"]);
-});
+let bobsPrices = bobsPurchases.map(function (element) {
+  return element["price"];
+})
 
 let bobsTotal = bobsPrices.reduce(function (accumulator, currentValue) {
   return accumulator + currentValue;
