@@ -138,4 +138,9 @@ let bobsTotal = bobsPrices.reduce(function (accumulator, currentValue) {
   return accumulator + currentValue;
 });
 
+/* let reducer = function (accumulator, currentValue) {
+  return accumulator + currentValue;
+};
 
+let bobsTotal = bobsPrices.reduce(reducer);
+console.log(bobsTotal); */
