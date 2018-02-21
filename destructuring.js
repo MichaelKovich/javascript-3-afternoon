@@ -21,9 +21,7 @@ var carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables. 
 */
 
-//Code Here
-
-
+var {color, make, model, year} = carDetails;
 
 ////////// PROBLEM 2 //////////
 
@@ -34,14 +32,10 @@ var carDetails = {
 */
 
 function greeting( obj ) {
-  //Code Here
-  
-  // Do not edit the code below.
+  let {firstName, lastName, title} = obj;
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
 }
-
-
 
 ////////// PROBLEM 3 //////////
 
@@ -55,7 +49,10 @@ function greeting( obj ) {
 
 //Code Here
 
-
+let totalPopulation = (obj) => {
+  let {utah, california, texas, arizona} = obj;
+  return (utah + california + texas + arizona);
+};
 
 ////////// PROBLEM 4 //////////
 
@@ -67,9 +64,12 @@ function greeting( obj ) {
   Push these new variables to an array and return the array. 
 */
 
-//Code Here
-
-
+let ingredients = (obj) => {
+  let {carb, fat, protein} = obj;
+  let newArray = [];
+  newArray.push(carb, fat, protein);
+  return newArray;
+};
 
 ////////// PROBLEM 5 //////////
 
@@ -85,9 +85,9 @@ function greeting( obj ) {
   Find the smallest number of the three and return that number.
 */
 
-//Code Here
-
-
+let largeNumbers = ({first, second, third}) => {
+  return Math.min(first, second, third);
+};
 
 ////////// PROBLEM 6 //////////
 
@@ -97,6 +97,16 @@ function greeting( obj ) {
   Find the longest array and return that array.
 */
 
-//Code Here
-
+let numberGroups = ({a, b, c}) => {
+  let largestArray = a;
+  if (b.length > largestArray.length) {
+    largestArray = b;
+    if (c.length > b.length) {
+      largestArray = c;
+    }
+  } else if (c.length > largestArray.length) {
+    largestArray = c;
+  }
+  return largestArray;
+}
 
