@@ -13,19 +13,28 @@
 */
 
 class Machine {
-  constructor() {
-    this.widgets_made_count = 0;
-    this.wear_and_tear_count = 0;
-    this.needs_reboot = false;
-  };
+  constructor(widgets_made_count = 0, wear_and_tear_count = 0, needs_reboot = false) {
+    this.widgets_made_count = widgets_made_count;
+    this.wear_and_tear_count = wear_and_tear_count;
+    this.needs_reboot = needs_reboot;
+  }
 
   makeWidgets(x) {
     this.widgets_made_count += x;
-    this.wear_and_tear_count += (1 * (x/50));
+    this.wear_and_tear_count += Math.floor(1 * (x/50));
   }
 
   fixMachine() {
     this.needs_reboot = true;
+  }
+
+  reboot() {
+    if (this.needs_reboot === true) {
+      return () => {
+        this.wear_and_tear_count -= 10;
+        this.needs_reboot = false;
+      };
+    }
   }
 }
 
