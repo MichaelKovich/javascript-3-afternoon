@@ -51,9 +51,9 @@ var employees = [
 */
 
 let employeeUpdater = () => {
-  employees.forEach(function (element) {
+  employees.forEach(function (element, index, array) {
     if (element.firstName === 'Theo') {
-      delete element.firstName;
+      employees.splice(index, 1);
     } else if (element.firstName === 'Lorie') {
       element.department = 'HR';
     }
